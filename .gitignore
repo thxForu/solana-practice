@@ -1,0 +1,14 @@
+# Rust
+target/
+**/*.rs.bk
+Cargo.lock
+
+# Solana
+test-ledger/
+
+# Anchor
+.anchor/
+
+# IDE
+.idea/
+.vscode/
