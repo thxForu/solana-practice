@@ -5,7 +5,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-token_deposit_01 = "BqVGiVPq5Voh88VC6UXSGoxzi3PoHCg8hHPE8A2BRtio"
+sol_and_apl_transfer_00 = "BqVGiVPq5Voh88VC6UXSGoxzi3PoHCg8hHPE8A2BRtio"
 
 [registry]
 url = "https://api.apr.dev"
