@@ -62,35 +62,35 @@ describe("sol_and_spl_transfer_00", () => {
       toWallet.publicKey
     );
 
-      const amount = 10_000_000_000; // 10 tokens
-      await mintTo(
-        provider.connection,
-        fromWallet.payer,
-        mint,
-        fromAta,
-        provider.wallet.publicKey,
-        amount
-      );
+    const amount = 10_000_000_000; // 10 tokens
+    await mintTo(
+      provider.connection,
+      fromWallet.payer,
+      mint,
+      fromAta,
+      provider.wallet.publicKey,
+      amount
+    );
 
     const fromAtaBalance = await provider.connection.getTokenAccountBalance(fromAta);
     console.log("Initial from balance:", fromAtaBalance.value.uiAmount);
 
     const transferAmount = amount / 2;
     await program.methods
-    .transferSplTokens(new anchor.BN(transferAmount))
-    .accounts({
-      from: provider.wallet.publicKey,
-      fromAta,
-      toAta,
-    })
-    .rpc();
+      .transferSplTokens(new anchor.BN(transferAmount))
+      .accounts({
+        from: provider.wallet.publicKey,
+        fromAta,
+        toAta,
+      })
+      .rpc();
 
     const toAtaBalance = await provider.connection.getTokenAccountBalance(toAta);
     console.log("Final to balance:", toAtaBalance.value.uiAmount);
 
     assert.equal(
       toAtaBalance.value.uiAmount,
-      transferAmount / (1e9), // конвертуємо в UI amount
+      transferAmount / (1e9),
       "Incorrect transfer amount"
     );
   });
